@@ -82,7 +82,71 @@ console.log(car[x]);
 console.log(car.name);*/
 
 
-document.querySelector("h1").style.backgroundColor = "red";
 document.getElementById("h22").classList.add("huge");
+document.getElementById("h11").innerHTML= "HI";
+document.getElementById("h11").style.color = "orange";
+document.getElementById("h11").style.fontFamily = "Cabin";
+document.getElementById("main").style.textAlign = "center";
+document.querySelector("#main").style.backgroundColor = "lightGreen";
 
+   
+document.getElementsByTagName("h2")[0].innerHTML = "<em>Welcome To JS</em>"
+
+
+var r1 = Math.floor((Math.random() * 6)) + 1;
+var r2 = Math.floor((Math.random() * 6)) + 1;
+var d1= "dice/dice"+ r1+".png";
+var d2 = "dice/dice"+ r2+".png";
+document.getElementById('dice1').setAttribute('src',d1);
+document.getElementById('dice2').setAttribute('src',d2);
+
+if(r1>r2){
+    document.getElementById("result").innerHTML="player 1 wins!!"
+}
+else if(r1<r2){
+    document.getElementById("result").innerHTML="player 2 wins!! haha"
+}
+else{
+    document.getElementById("result").innerHTML="Its a tie .."
+}
+
+
+var s = r1 + r2;
+
+
+document.getElementsByClassName("sum")[1].innerHTML = "your sum is "+s;
+
+for (let i=1;i<=document.getElementsByTagName("button").length;i++){
+    
+    document.getElementsByClassName("btn")[i-1].addEventListener("click",function(){alert("you clicked on "+i); console.log(this.style.color="black")});
+}
+
+/* Higher order functions
+function add(num1, num2){
+    return num1 + num2;
+}
+
+function sub(num1,num2){
+    return num1 - num2;
+}
+
+function multiply(num1,num2){
+    return num1*num2;
+}
+
+function divide(num1,num2){
+    return num1/num2;
+}
+
+function calculate(num1,num2,operation){
+    return operation(num1,num2);
+} */
+
+function Process(name,task){
+    this.name = name;
+    this.task = task;
+    this.doThing = function(){ alert("in process..."); }
+};
+
+var cx = new Process("wind","clean");
 
