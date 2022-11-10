@@ -116,9 +116,9 @@ var s = r1 + r2;
 
 document.getElementsByClassName("sum")[1].innerHTML = "your sum is "+s;
 
-for (let i=1;i<=document.getElementsByTagName("button").length;i++){
-    
-    document.getElementsByClassName("btn")[i-1].addEventListener("click",function(){alert("you clicked on "+i);console.log(this.innerHTML); });
+for (let i=0;i<document.getElementsByTagName("button").length;i++){
+    const c = i + 1;
+    document.getElementsByClassName("btn")[i].addEventListener("click",function(){alert("you clicked on "+ c);console.log(this.innerHTML); });
 }
 
 document.getElementsByTagName("body")[0].addEventListener("keydown",function(event){console.log(event.key +" is pressed")})
@@ -173,3 +173,10 @@ for (let o in document.getElementById('container').children){
    
 }
 console.log(c1);
+
+console.log("the ind obj is objec now "+ ind);
+var js = JSON.stringify(ind);
+console.log("ind is now a JSON "+ js);
+
+
+
