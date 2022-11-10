@@ -118,8 +118,12 @@ document.getElementsByClassName("sum")[1].innerHTML = "your sum is "+s;
 
 for (let i=1;i<=document.getElementsByTagName("button").length;i++){
     
-    document.getElementsByClassName("btn")[i-1].addEventListener("click",function(){alert("you clicked on "+i); });
+    document.getElementsByClassName("btn")[i-1].addEventListener("click",function(){alert("you clicked on "+i);console.log(this.innerHTML); });
 }
+
+document.getElementsByTagName("body")[0].addEventListener("keydown",function(event){console.log(event.key +" is pressed")})
+
+
 
 /* Higher order functions
 function add(num1, num2){
@@ -150,13 +154,22 @@ function Process(name,task){
 
 var cx = new Process("wind","clean");
 
-
 function Country(name,continent,leader){
     this.name = name;
     this.continent = continent;
     this.leader = leader;
-    this.fullName = function(){alert("this is country constructor object")};
+    this.fullName = function(){alert("this is country constructor function")};
 }
 
+
 var ind = new Country("India","Asia","Modi");
-ind.fullName();
+var c1 = 0;
+
+for (let o in document.getElementById('container').children){
+    
+   if (document.getElementById('container').children[o].tagName==="IMG"){
+    c1 = c1+1;
+   }
+   
+}
+console.log(c1);
