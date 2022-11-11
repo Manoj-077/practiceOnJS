@@ -83,7 +83,7 @@ console.log(car.name);*/
 
 
 document.getElementById("h22").classList.add("huge");
-document.getElementById("h11").innerHTML= "HI";
+
 document.getElementById("h11").style.color = "orange";
 document.getElementById("h11").style.fontFamily = "Cabin";
 document.getElementById("main").style.textAlign = "center";
@@ -116,12 +116,12 @@ var s = r1 + r2;
 
 document.getElementsByClassName("sum")[1].innerHTML = "your sum is "+s;
 
-for (let i=0;i<document.getElementsByTagName("button").length;i++){
+for (let i=0;i<document.getElementsByClassName("btn").length;i++){
     const c = i + 1;
     document.getElementsByClassName("btn")[i].addEventListener("click",function(){alert("you clicked on "+ c);console.log(this.innerHTML); });
 }
 
-document.getElementsByTagName("body")[0].addEventListener("keydown",function(event){console.log(event.key +" is pressed")})
+/*document.getElementsByTagName("body")[0].addEventListener("keydown",function(event){console.log(event.key +" is pressed")})*/
 
 
 
@@ -158,7 +158,7 @@ function Country(name,continent,leader){
     this.name = name;
     this.continent = continent;
     this.leader = leader;
-    this.fullName = function(){alert("this is country constructor function")};
+    this.fullName = function(){console.log("this is country constructor function")};
 }
 
 
@@ -177,6 +177,68 @@ console.log(c1);
 console.log("the ind obj is objec now "+ ind);
 var js = JSON.stringify(ind);
 console.log("ind is now a JSON "+ js);
+
+document.getElementById("h11").addEventListener("click",function(){window.history.back()})
+
+document.getElementById("back").style.marginTop = "100px";
+document.getElementById("back").style.display = "inline-block";
+document.getElementById("back").classList.add("ll");
+document.getElementById("back").addEventListener("click",function(){window.history.back()})
+   
+document.getElementById("hist").innerHTML = "the number of history urls are "+ window.history.length;
+document.getElementById("hist").style.backgroundColor = "yellow";
+var fn ,ar1,ar2=[];
+var ln ;
+var ag;
+var idx,djj;
+
+function Data(firstName,lastName,age){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;   
+}
+
+var idx = new Data("jim","rogers",23)
+console.log(idx);
+
+document.getElementById("sub").addEventListener("click",function(){
+    fn = document.getElementById("fname").value;
+    ln = document.getElementById("lname").value;   
+    ag = document.getElementById("age").value;
+    alert(`hi, ${fn} ${ln}, age is ${ag}`);
+    console.log(fn+" "+ln+" "+ag);
+    ar1 = [];
+    ar1.push(fn);
+    ar1.push(ln);
+    ar1.push(parseInt(ag));
+    console.log(ar1);
+    localStorage.setItem("data1",JSON.stringify(ar1));
+    storing();
+})
+
+function storing(){
+ar2 = localStorage.getItem("data1");
+console.log(ar2);
+ar2 = JSON.parse(ar2);
+console.log(ar2);
+djj = new Data(ar2[0],ar2[1],ar2[2]);
+console.log(djj);
+localStorage.setItem("DAr2",ar2);
+}
+var vr=0;
+for (let k in localStorage){
+    var vr ;
+    if(vr<localStorage.length){
+         console.log(k)
+        }
+    vr++ 
+    };
+
+
+
+
+
+
 
 
 
