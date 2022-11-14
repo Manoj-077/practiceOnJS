@@ -117,7 +117,7 @@ var s = r1 + r2;
 document.getElementsByClassName("sum")[1].innerHTML = "your sum is "+s;
 
 for (let i=0;i<document.getElementsByClassName("btn").length;i++){
-    const c = i + 1;
+    let c = i + 1;
     document.getElementsByClassName("btn")[i].addEventListener("click",function(){alert("you clicked on "+ c);console.log(this.innerHTML); });
 }
 
@@ -166,7 +166,7 @@ var ind = new Country("India","Asia","Modi");
 var c1 = 0;
 
 for (let o in document.getElementById('container').children){
-    
+
    if (document.getElementById('container').children[o].tagName==="IMG"){
     c1 = c1+1;
    }
@@ -187,10 +187,10 @@ document.getElementById("back").addEventListener("click",function(){window.histo
    
 document.getElementById("hist").innerHTML = "the number of history urls are "+ window.history.length;
 document.getElementById("hist").style.backgroundColor = "yellow";
-var fn ,ar1,ar2=[];
+var fn ,ar1,ar2;
 var ln ;
 var ag;
-var idx,djj;
+var idx,djj,gd;
 
 function Data(firstName,lastName,age){
     this.firstName = firstName;
@@ -206,33 +206,32 @@ document.getElementById("sub").addEventListener("click",function(){
     ln = document.getElementById("lname").value;   
     ag = document.getElementById("age").value;
     alert(`hi, ${fn} ${ln}, age is ${ag}`);
-    console.log(fn+" "+ln+" "+ag);
+    console.log("hi "+fn+" "+ln+" "+ag);
     ar1 = [];
     ar1.push(fn);
     ar1.push(ln);
     ar1.push(parseInt(ag));
     console.log(ar1);
-    localStorage.setItem("data1",JSON.stringify(ar1));
+    localStorage.setItem(fn+ln,JSON.stringify(ar1));
     storing();
 })
 
 function storing(){
-ar2 = localStorage.getItem("data1");
-console.log(ar2);
-ar2 = JSON.parse(ar2);
+gd = localStorage.getItem(fn+ln);
+console.log("got item "+gd);
+ar2 = JSON.parse(gd);
 console.log(ar2);
 djj = new Data(ar2[0],ar2[1],ar2[2]);
 console.log(djj);
-localStorage.setItem("DAr2",ar2);
 }
 var vr=0;
 for (let k in localStorage){
-    var vr ;
+
     if(vr<localStorage.length){
          console.log(k)
         }
     vr++ 
-    };
+};
 
 
 
